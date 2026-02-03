@@ -1,5 +1,5 @@
 # Render Blueprint - Quest Academy LMS
-# Deploy all services at once: https://render.com/deploy
+# Deploy all services: https://render.com/deploy
 
 databases:
   - name: quest-academy-db
