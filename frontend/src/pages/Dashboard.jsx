@@ -71,19 +71,24 @@ function Dashboard() {
     const loadDashboardData = async () => {
         try {
             const [worldsRes, statsRes, engagementRes, leaderboardRes, assignmentsRes] = await Promise.all([
-                worldsAPI.getAll(),
-                progressAPI.getStats(),
+                worldsAPI.getAll().catch(() => ({ data: [] })),
+                progressAPI.getStats().catch(() => ({ data: null })),
                 engagementAPI.getDashboard().catch(() => ({ data: null })),
                 engagementAPI.getMiniLeaderboard().catch(() => ({ data: null })),
                 assignmentsAPI.getUserPending().catch(() => ({ data: [] })),
             ]);
-            setWorlds(worldsRes.data);
+            // Ensure worlds is always an array
+            setWorlds(Array.isArray(worldsRes.data) ? worldsRes.data : []);
             setStats(statsRes.data);
             setEngagement(engagementRes.data);
-            setPendingAssignments(assignmentsRes.data || []);
+            // Ensure pendingAssignments is always an array
+            setPendingAssignments(Array.isArray(assignmentsRes.data) ? assignmentsRes.data : []);
             setMiniLeaderboard(leaderboardRes.data);
         } catch (error) {
             console.error('Failed to load dashboard data:', error);
+            // Set safe defaults on error
+            setWorlds([]);
+            setPendingAssignments([]);
         }
         setLoading(false);
     };
