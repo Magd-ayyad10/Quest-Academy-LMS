@@ -5,9 +5,14 @@ from app.config import get_settings
 
 settings = get_settings()
 
+# Fix for Render: they use postgres:// but SQLAlchemy needs postgresql://
+database_url = settings.database_url
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+
 # Create SQLAlchemy engine
 engine = create_engine(
-    settings.database_url,
+    database_url,
     pool_pre_ping=True,
     pool_size=10,
     max_overflow=20

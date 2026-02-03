@@ -5,9 +5,19 @@ from sqlalchemy import pool
 
 from alembic import context
 
+import os
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+# Override sqlalchemy.url from environment variable if available
+database_url = os.environ.get("DATABASE_URL")
+if database_url:
+    # Fix for Render: they use postgres:// but SQLAlchemy needs postgresql://
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql://", 1)
+    config.set_main_option("sqlalchemy.url", database_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -15,7 +25,6 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 import sys
-import os
 sys.path.append(os.getcwd())
 
 from app.database import Base
