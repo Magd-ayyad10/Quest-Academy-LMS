@@ -3,12 +3,19 @@ import axios from 'axios';
 // Use environment variable in production, fallback to /api for local dev (Vite proxy)
 const getApiBaseUrl = () => {
     const envUrl = import.meta.env.VITE_API_URL;
-    if (!envUrl) return '/api';
+    console.log('[API Config] VITE_API_URL:', envUrl);
+
+    if (!envUrl) {
+        console.log('[API Config] No VITE_API_URL set, using /api proxy');
+        return '/api';
+    }
 
     // If URL doesn't have protocol, add https://
     const baseUrl = envUrl.startsWith('http') ? envUrl : `https://${envUrl}`;
     // Ensure we append /api
-    return baseUrl.endsWith('/api') ? baseUrl : `${baseUrl}/api`;
+    const finalUrl = baseUrl.endsWith('/api') ? baseUrl : `${baseUrl}/api`;
+    console.log('[API Config] Final API URL:', finalUrl);
+    return finalUrl;
 };
 
 const API_BASE_URL = getApiBaseUrl();
