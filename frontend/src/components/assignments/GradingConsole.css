@@ -1,0 +1,80 @@
+.grading-console {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    height: 500px;
+}
+
+.submissions-list {
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 1rem;
+}
+
+.sub-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sub-item:hover,
+.sub-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #f59e0b;
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.status-badge.pending {
+    background: #f59e0b;
+    color: black;
+}
+
+.status-badge.approved {
+    background: #10b981;
+    color: black;
+}
+
+.status-badge.rejected {
+    background: #ef4444;
+    color: white;
+}
+
+.inspector-panel {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.artifact-link {
+    display: inline-block;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.mission-log {
+    font-style: italic;
+    color: #cbd5e1;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+
+.grading-form {
+    margin-top: auto;
+}

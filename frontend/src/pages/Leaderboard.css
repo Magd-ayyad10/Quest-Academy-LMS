@@ -1,0 +1,204 @@
+.leaderboard-page {
+    padding-top: 100px;
+    padding-bottom: 40px;
+    min-height: 100vh;
+    background: transparent;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* My Rank Card */
+.my-rank-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border: 2px solid var(--primary);
+}
+
+.rank-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.rank-position {
+    font-size: 3rem;
+}
+
+.rank-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.rank-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.rank-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-light);
+}
+
+.rank-stats {
+    display: flex;
+    gap: 32px;
+}
+
+.rank-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Leaderboard Table */
+.leaderboard-table {
+    padding: 0;
+    overflow: hidden;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px 150px 150px;
+    gap: 16px;
+    padding: 16px 24px;
+    background: rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.table-body {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px 150px 150px;
+    gap: 16px;
+    padding: 16px 24px;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: background var(--transition-fast);
+}
+
+.table-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.table-row.highlight {
+    background: rgba(139, 92, 246, 0.1);
+    border-left: 3px solid var(--primary);
+}
+
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.rank-1 {
+    font-size: 1.5rem;
+}
+
+.rank-2 {
+    font-size: 1.5rem;
+}
+
+.rank-3 {
+    font-size: 1.5rem;
+}
+
+.col-hero {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-avatar {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.hero-name {
+    font-weight: 600;
+}
+
+.level-badge-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #1a1a2e;
+}
+
+.col-xp,
+.col-gold {
+    font-weight: 600;
+    font-feature-settings: 'tnum';
+}
+
+.empty-row {
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 60px 1fr 80px 100px;
+    }
+
+    .col-gold {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .my-rank-card {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .rank-stats {
+        gap: 20px;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 50px 1fr 60px;
+    }
+
+    .col-level {
+        display: none;
+    }
+}

@@ -1,0 +1,242 @@
+.submission-page {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background: transparent;
+}
+
+.submission-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: flex-start;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--primary-light);
+}
+
+.assignment-details {
+    padding: 30px;
+    border-color: var(--primary-dark);
+    /* TiltCard Fixes */
+    transform: none !important;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.assignment-details button {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.submission-header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.bounty-label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.submission-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.rewards-pill {
+    display: inline-flex;
+    gap: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rewards-pill .reward {
+    font-weight: 700;
+}
+
+.description-section h3 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.description-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.date-section {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 16px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* Form Section */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.pending {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--blue-light);
+}
+
+.status-badge.graded {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--green-light);
+}
+
+.status-badge.approved {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--green-light);
+}
+
+.status-badge.rejected {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--red-light);
+}
+
+.submission-textarea {
+    width: 100%;
+    min-height: 250px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.submission-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.form-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-lg {
+    padding: 14px 40px;
+    font-size: 1.1rem;
+}
+
+.success-banner {
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid #10b981;
+    color: #34d399;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Submitted View */
+.submitted-content {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    margin: 10px 0;
+    white-space: pre-wrap;
+}
+
+.submitted-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: right;
+}
+
+.grading-result {
+    margin-top: 30px;
+    background: linear-gradient(145deg, rgba(251, 191, 36, 0.1), rgba(0, 0, 0, 0));
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.grading-result h3 {
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.grade-score {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.grade-score span {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-left: 8px;
+}
+
+.grading-feedback {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-style: italic;
+    color: var(--text-primary);
+}

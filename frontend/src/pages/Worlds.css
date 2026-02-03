@@ -1,0 +1,173 @@
+.worlds-page {
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background: transparent;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+/* Worlds Grid - Illustrated Cards */
+.worlds-grid-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.world-card-wrapper-page {
+    width: 100%;
+    height: 200px;
+}
+
+/* Illustrated World Card */
+.world-card-illustrated {
+    position: relative;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    transform: none !important;
+}
+
+.world-card-illustrated:hover {
+    transform: none !important;
+    border-color: var(--world-primary);
+    box-shadow:
+        0 20px 50px -10px var(--world-glow),
+        0 0 40px var(--world-glow);
+}
+
+/* Gradient overlay */
+.world-card-illustrated .world-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.5) 40%,
+            rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+.world-card-illustrated:hover .world-card-overlay {
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* Content */
+.world-card-illustrated .world-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.world-card-illustrated .world-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.world-card-illustrated .world-difficulty {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--world-primary);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--world-primary);
+    text-transform: capitalize;
+}
+
+/* Bottom glow line */
+.world-card-illustrated .world-card-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--world-primary);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+.world-card-illustrated:hover .world-card-glow {
+    opacity: 1;
+}
+
+/* Empty State */
+.empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 5rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+}
+
+.empty-state p {
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .worlds-grid-page {
+        grid-template-columns: 1fr;
+    }
+
+    .world-card-illustrated {
+        height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .world-card-illustrated {
+        height: 160px;
+        padding: 16px;
+    }
+
+    .world-card-illustrated .world-title {
+        font-size: 1.4rem;
+    }
+}

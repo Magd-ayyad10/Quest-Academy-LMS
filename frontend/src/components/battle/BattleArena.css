@@ -1,0 +1,232 @@
+.battle-arena {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+}
+
+.battle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* Character HUDs */
+.combatant-hud {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.combatant-avatar {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.combatant-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* HP Bars */
+.hp-bar-container {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hp-fill {
+    height: 100%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hp-fill.player {
+    background: linear-gradient(90deg, #10b981, #059669);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.hp-fill.monster {
+    background: linear-gradient(90deg, #ef4444, #b91c1c);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.hp-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    line-height: 20px;
+    font-size: 0.8rem;
+    text-shadow: 0 1px 2px black;
+    font-weight: bold;
+}
+
+/* VS Badge */
+.vs-badge {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f59e0b;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+/* Question Area */
+.question-card {
+    background: rgba(20, 20, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.battle-option-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.battle-option-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.battle-option-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* Feedback Overlay */
+.battle-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem 4rem;
+    border-radius: 16px;
+    border: 2px solid;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 100;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.battle-message.hit {
+    border-color: #10b981;
+    color: #10b981;
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.3);
+}
+
+.battle-message.miss {
+    border-color: #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 50px rgba(239, 68, 68, 0.3);
+}
+
+/* Animations */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes popIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+/* Screen Shake Animation */
+@keyframes shake-screen {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-10px) rotate(-1deg); }
+    20% { transform: translateX(10px) rotate(1deg); }
+    30% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    50% { transform: translateX(-5px); }
+    60% { transform: translateX(5px); }
+    70% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+}
+
+.shake-screen {
+    animation: shake-screen 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* System Critical/Synced Overlays */
+.battle-message.miss {
+    border-color: #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 50px rgba(239, 68, 68, 0.5);
+    background: rgba(20, 0, 0, 0.95);
+    font-family: 'Courier New', monospace; /* Monospace for 'System' feel */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.battle-message.hit {
+    border-color: #10b981;
+    color: #10b981;
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.5);
+    background: rgba(0, 20, 0, 0.95);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

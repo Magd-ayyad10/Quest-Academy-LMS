@@ -1,0 +1,204 @@
+.assignments-page {
+    padding: 30px;
+    padding-top: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--gold), #fcd34d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    /* Increased gap to account for external buttons */
+}
+
+/* New Wrapper */
+.assignment-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bounty-card {
+    padding: 25px;
+    /* height: 100%; Removed fixed height dominance */
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    transform: none !important;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    background: rgba(255, 255, 255, 0.05);
+    /* Ensure it has background */
+}
+
+.bounty-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--primary);
+}
+
+.bounty-card.pending {
+    border-color: var(--blue-glow);
+}
+
+.bounty-card.completed,
+.bounty-card.graded {
+    border-color: var(--green-glow);
+}
+
+.bounty-card.overdue {
+    border-color: var(--red-glow);
+}
+
+.card-badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.pending .card-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--blue-light);
+}
+
+.completed .card-badge,
+.graded .card-badge {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--green-light);
+}
+
+.overdue .card-badge {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--red-light);
+}
+
+.bounty-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.bounty-card .description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 3;
+}
+
+/* Card Footer Info (inside TiltCard) */
+.card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+}
+
+.rewards {
+    display: flex;
+    gap: 12px;
+}
+
+.reward {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.reward.xp {
+    color: var(--primary-light);
+}
+
+.reward.gold {
+    color: var(--gold);
+}
+
+.due-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* External Action Bar */
+.assignment-action-bar {
+    margin-top: 15px;
+    z-index: 10;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+/* Modal Enhancements */
+.modal-content textarea {
+    width: 100%;
+    min-height: 200px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    font-family: inherit;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+.modal-content textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .assignments-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,43 @@
+.lesson-editor {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 100px;
+    color: white;
+}
+
+.lesson-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid #3b82f6;
+    margin-bottom: 0.5rem;
+}
+
+.lesson-main h4 {
+    margin: 0;
+    margin-bottom: 0.2rem;
+}
+
+.lesson-tools {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge-xp {
+    background: #3b82f6;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: white;
+}
+
+.new-lesson-btn {
+    width: 100%;
+    padding: 1.5rem;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+}

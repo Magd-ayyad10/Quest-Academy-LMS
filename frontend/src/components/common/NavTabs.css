@@ -1,0 +1,89 @@
+.nav-tabs-container {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem;
+    border-radius: 9999px;
+    /* Pill shape container */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tab-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.2s;
+    isolation: isolate;
+    /* Create stacking context */
+}
+
+.nav-tab-item.active {
+    color: white;
+    /* Text color for active tab */
+}
+
+/* Hover Background */
+.nav-tab-hover-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    z-index: -1;
+}
+
+/* Active Indicator */
+.nav-tab-active-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary), var(--blue));
+    border-radius: 9999px;
+    z-index: -2;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    /* Glow effect */
+}
+
+/* Content */
+.nav-tab-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab-icon {
+    font-size: 1.1rem;
+}
+
+/* Dark Mode Adjustments */
+[data-theme='dark'] .nav-tabs-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .nav-tab-item {
+    color: var(--text-muted);
+}
+
+[data-theme='dark'] .nav-tab-item.active {
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-tab-label {
+        display: none;
+    }
+
+    .nav-tab-item {
+        padding: 0.6rem;
+    }
+}
